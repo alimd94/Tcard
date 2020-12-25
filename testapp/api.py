@@ -25,17 +25,21 @@ class SimpleApi(APIView):
         return Response(content)
 
 class ProductDeleteApi(generics.DestroyAPIView):
+    permission_classes = (IsAuthenticated,)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 class ProductUpdateApi(generics.RetrieveUpdateAPIView):
+    permission_classes = (IsAuthenticated,)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 class ProductReadApi(generics.ListAPIView):
+    permission_classes = (IsAuthenticated,)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
 class ProductCreateApi(generics.CreateAPIView):
+    permission_classes = (IsAuthenticated,)
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

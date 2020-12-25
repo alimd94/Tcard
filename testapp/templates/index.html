@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href=" {% static 'testapp/css/bootstrap.min.css' %} "/>
+        <link type="text/css" rel="stylesheet" href=" {% static 'testapp/css/style.css' %} "/>
+
+
+    </head>
+    <body>
+        <div class="container" id="loginformdiv">
+<div class="login-form">
+    <form id="loginform" action="" method="post">
+        <h2 class="text-center">Log in</h2>       
+        <div class="form-group">
+        {% comment %} {% csrf_token %} {% endcomment %}
+            <input id="username" type="text" class="form-control" placeholder="Username" required="required">
+        </div>
+        <div class="form-group">
+            <input id="password" type="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        </div>       
+    </form>
+    <p class="text-center"><a href="#">Create an Account</a></p>
+</div>
+</div>
+        <script src=" {% static 'testapp/js/jquery.min.js' %} "></script>
+        <script src=" {% static 'testapp/js/bootstrap.min.js' %} "></script>
+        <script src=" {% static 'testapp/js/jquery.zoom.min.js' %} "></script>
+        <script src=" {% static 'testapp/js/myscript.js' %} "></script>
+    </body>
+</html>
+
+
+
