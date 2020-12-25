@@ -1,8 +1,9 @@
 from rest_framework import generics, permissions, mixins
 from rest_framework.response import Response
-from .serializer import RegisterSerializer, UserSerializer
+from .serializer import RegisterSerializer, UserSerializer, ProductSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
+from .models import Product
 # from django.contrib.auth.models import User
 #Register API
 class RegisterApi(generics.GenericAPIView):
@@ -22,3 +23,19 @@ class SimpleApi(APIView):
     def get(self, request):
         content = {'message': 'Hello, World!'}
         return Response(content)
+
+class ProductDeleteApi(generics.DestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductUpdateApi(generics.RetrieveUpdateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductReadApi(generics.ListAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+class ProductCreateApi(generics.CreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
